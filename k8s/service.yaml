@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-native-api
+  namespace: ai-native
+  labels:
+    app: ai-native-api
+spec:
+  selector:
+    app: ai-native-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

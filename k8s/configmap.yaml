@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-native-config
+  namespace: ai-native
+data:
+  ENVIRONMENT: production
+  MAX_UPLOAD_MB: "25"
+  DAILY_REQUEST_TARGET: "4000"
+  SERVICE_LEVEL_LATENCY_MS: "500"

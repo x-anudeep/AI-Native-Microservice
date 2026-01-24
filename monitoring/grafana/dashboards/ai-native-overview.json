@@ -1,0 +1,26 @@
+{
+  "title": "AI Native Microservice Overview",
+  "schemaVersion": 39,
+  "version": 1,
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Requests",
+      "targets": [{"expr": "sum(rate(ai_native_requests_total[5m]))"}]
+    },
+    {
+      "type": "timeseries",
+      "title": "Provider Cost",
+      "targets": [{"expr": "sum(increase(ai_native_provider_cost_usd_total[1h])) by (provider)"}]
+    },
+    {
+      "type": "timeseries",
+      "title": "P95 Latency",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(ai_native_request_latency_seconds_bucket[5m])) by (le))"
+        }
+      ]
+    }
+  ]
+}
