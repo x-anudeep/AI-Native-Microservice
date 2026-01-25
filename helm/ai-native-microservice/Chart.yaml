@@ -1,0 +1,6 @@
+apiVersion: v2
+name: ai-native-microservice
+description: Helm chart for the AI-Native Microservice Platform
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

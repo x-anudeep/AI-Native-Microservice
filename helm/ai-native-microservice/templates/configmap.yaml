@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "ai-native.fullname" . }}-config
+data:
+  ENVIRONMENT: {{ .Values.config.environment | quote }}
+  MAX_UPLOAD_MB: {{ .Values.config.maxUploadMb | quote }}
+  DAILY_REQUEST_TARGET: {{ .Values.config.dailyRequestTarget | quote }}
+  SERVICE_LEVEL_LATENCY_MS: {{ .Values.config.serviceLevelLatencyMs | quote }}
