@@ -1,0 +1,23 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: Image tag to deploy
+        required: true
+        default: latest
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4
+      - name: Render Helm chart
+        run: |
+          helm template ai-native ./helm/ai-native-microservice \
+            --set image.tag="${{ inputs.image_tag }}"
+      - name: Deployment gate
+        run: echo "Manual production deployment gate passed for ${{ inputs.image_tag }}"
