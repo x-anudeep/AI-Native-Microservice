@@ -30,6 +30,7 @@ pytest
 ## Architecture
 
 - API docs: `http://127.0.0.1:8000/docs`
+- Dark dashboard: `http://127.0.0.1:8000/`
 - Prometheus metrics: `http://127.0.0.1:8000/api/v1/metrics`
 - Full design notes: [docs/architecture.md](docs/architecture.md)
 

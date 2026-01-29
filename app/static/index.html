@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI-Native Microservice Platform</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Cloud-native AI routing console</p>
+          <h1>AI-Native Microservice Platform</h1>
+          <p class="summary">
+            Route document workloads across provider profiles, inspect runtime health, and preview
+            cost and latency signals from one dark operations view.
+          </p>
+        </div>
+        <div class="status-strip" aria-label="Platform status">
+          <div>
+            <span class="metric-label">Daily Target</span>
+            <strong>4K+</strong>
+          </div>
+          <div>
+            <span class="metric-label">P95 SLO</span>
+            <strong>&lt;500ms</strong>
+          </div>
+          <div>
+            <span class="metric-label">Scale</span>
+            <strong>2-6 pods</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <form class="panel route-panel" id="route-form">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Provider Router</p>
+              <h2>Classify a workload</h2>
+            </div>
+            <button type="submit">Route</button>
+          </div>
+
+          <label for="content">Document content</label>
+          <textarea id="content" name="content" rows="6">Analyze this vendor contract and extract risk clauses.</textarea>
+
+          <div class="form-grid">
+            <label>
+              Workload
+              <select id="workload_type" name="workload_type">
+                <option value="text">Text</option>
+                <option value="image">Image</option>
+                <option value="pdf">PDF</option>
+                <option value="mixed">Mixed</option>
+              </select>
+            </label>
+            <label>
+              Priority
+              <select id="priority" name="priority">
+                <option value="balanced">Balanced</option>
+                <option value="premium">Premium</option>
+                <option value="economy">Economy</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="checks">
+            <label><input id="needs_reasoning" type="checkbox" checked /> Reasoning</label>
+            <label><input id="needs_vision" type="checkbox" /> Vision</label>
+          </div>
+        </form>
+
+        <section class="panel decision-panel" aria-live="polite">
+          <p class="eyebrow">Selected Profile</p>
+          <div class="provider-card">
+            <span id="provider">Claude</span>
+            <strong id="model">claude-3-5-sonnet</strong>
+          </div>
+          <p id="reason" class="reason">Reasoning-heavy task benefits from deliberative model.</p>
+          <dl class="stats">
+            <div>
+              <dt>Cost</dt>
+              <dd id="cost">$0.020</dd>
+            </div>
+            <div>
+              <dt>Budget</dt>
+              <dd id="latency">750ms</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+
+      <section class="grid lower-grid">
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Runtime</p>
+              <h2>Service Health</h2>
+            </div>
+            <button id="refresh-health" type="button">Refresh</button>
+          </div>
+          <div class="health-list" id="health-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Telemetry</p>
+              <h2>Metrics Snapshot</h2>
+            </div>
+            <button id="refresh-metrics" type="button">Refresh</button>
+          </div>
+          <div class="metric-grid" id="metrics"></div>
+        </section>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
