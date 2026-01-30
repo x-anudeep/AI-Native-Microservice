@@ -39,7 +39,7 @@
 - Logs and metrics are emitted to stdout and Prometheus endpoints.
 - CI validates tests, linting, image builds, and Terraform syntax.
 
-## Resume Mapping
+## Platform Capabilities
 
 - Containerized API service: Dockerfile, compose, and CI image build.
 - 15+ endpoints: API inventory above.

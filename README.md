@@ -1,14 +1,14 @@
 # AI-Native Microservice Platform
 
-Production-style FastAPI platform for intelligent document processing. The API accepts text, PDF, and image workloads, selects an AI provider based on request characteristics, returns structured JSON, and exposes telemetry for cost, latency, and request quality.
+AI-Native Microservice Platform is a cloud-ready FastAPI service for intelligent document processing. It accepts text, PDF, and image workloads, routes each request to the best AI provider profile, returns structured JSON, and exposes operational telemetry for cost, latency, and service health.
 
 ## Highlights
 
-- Async FastAPI service with 15 endpoints across health, documents, providers, telemetry, and operations.
-- Provider router for reasoning, vision, long-context, economy, and balanced workloads.
-- Background job simulation for uploaded document/image processing.
-- Prometheus metrics for request counts, latency, provider cost, model selections, and failures.
-- Docker, Kubernetes, Helm, Terraform, and GitHub Actions support.
+- Async FastAPI API with 15+ endpoints across health, document processing, provider routing, telemetry, and operations.
+- AI provider routing profiles for reasoning, vision, long-context, economy, and balanced workloads.
+- Dark operations dashboard for routing demos, service health, and metrics snapshots.
+- Prometheus instrumentation for request counts, latency, provider cost, and model selections.
+- Docker runtime, Kubernetes manifests, Helm chart, Terraform AWS/EKS infrastructure, and GitHub Actions CI/CD.
 
 ## Local Development
 
@@ -19,12 +19,18 @@ pip install -e ".[dev]"
 uvicorn app.main:app --reload
 ```
 
-Open `http://127.0.0.1:8000/docs` for the API schema.
+Open the dashboard at `http://127.0.0.1:8000/` or the API schema at `http://127.0.0.1:8000/docs`.
 
 ## Test
 
 ```bash
 pytest
+```
+
+## Run With Docker
+
+```bash
+docker compose up --build
 ```
 
 ## Architecture
@@ -34,6 +40,10 @@ pytest
 - Prometheus metrics: `http://127.0.0.1:8000/api/v1/metrics`
 - Full design notes: [docs/architecture.md](docs/architecture.md)
 
-## Phases
+## Infrastructure
 
-The implementation is organized into four delivery phases in [docs/phases.md](docs/phases.md).
+- `Dockerfile` and `docker-compose.yml` package the service for local and containerized execution.
+- `k8s/` contains Kubernetes manifests for deployment, service discovery, config, service account, and HPA autoscaling.
+- `helm/` provides a reusable Helm chart for Kubernetes deployments.
+- `terraform/` provisions the AWS/EKS resource shape for the platform.
+- `.github/workflows/` validates tests, linting, container builds, and Terraform checks.
