@@ -33,6 +33,16 @@ pytest
 docker compose up --build
 ```
 
+## Deploy To Render
+
+The repository includes a `render.yaml` Blueprint for Render Web Services.
+
+```bash
+git push origin main
+```
+
+Then create a Render Blueprint from the GitHub repository. Deployment details are in [docs/render-deployment.md](docs/render-deployment.md).
+
 ## Architecture
 
 - API docs: `http://127.0.0.1:8000/docs`
